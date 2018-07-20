@@ -1,0 +1,68 @@
+<div class="container u-form mb-4 mt-4">
+  <div class="col-md-6 offset-md-3">
+    <div class="card">
+      <div class="card-body">
+        <form (ngSubmit)="onSubmitProperty(property); propertyForm.reset();" #propertyForm='ngForm'>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter Name"
+              name="name"
+              required
+              #name="ngModel"
+              [(ngModel)]="property.name">
+              <span class="error-message" *ngIf="!name.valid && name.touched">Please enter a valid name.</span>
+          </div>
+          <div class="form-group">
+            <label for="image"> image</label>
+            <input
+              type="text"
+              class="form-control"
+              id="image"
+              placeholder="Enter image"
+              name="image"
+              required
+              email
+              #image="ngModel"
+              [(ngModel)]="property.image">
+              <span class="error-message" *ngIf="!image.valid && image.touched">Please enter a valid image.</span>
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input
+              type="text"
+              class="form-control"
+              id="address"
+              placeholder="Enter Address"
+              name="address"
+              required
+              #address="ngModel"
+              [(ngModel)]="property.address">
+              <span class="error-message" *ngIf="!address.valid && address.touched">Please enter a valid address.</span>
+          </div>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="Enter City"
+              name="city"
+              required
+              #city="ngModel"
+              [(ngModel)]="property.city">
+              <span class="error-message" *ngIf="!city.valid && city.touched">Please enter a valid City.</span>
+          </div>
+          
+          <button
+            type="submit"
+            class="btn btn-primary btn-app"
+            [disabled]="!propertyForm.valid">Save Property</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

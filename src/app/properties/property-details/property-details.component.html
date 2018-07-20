@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="mb-4 mt-4">
+    <a class="btn btn-primary btn-app" routerLink="/property-list">Back</a>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ property.id }}</h5>
+          <h4 class="card-title">{{ property.name }}</h4>
+          <h5 class="card-title">{{ property.image }}</h5>
+          <h5 class="card-title">{{ property.address }}</h5>
+          <h5 class="card-title">{{ property.city }}</h5>
+          <button class="btn btn-danger btn-app" (click)="delete(property)">Delete</button>
+          <button class="btn btn-warning btn-app" (click)="update(property)">Edit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="u-form" [hidden]="!editBtnClicked">
+        <div class="card">
+          <div class="card-body">
+            <form #propertyForm='ngForm'>
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter Name"
+                  name="name"
+                  required
+                  #name="ngModel"
+                  [(ngModel)]="property.name">
+                  <span class="error-message" *ngIf="!name.valid && name.touched">Please enter a valid name.</span>
+              </div>
+              <div class="form-group">
+                <label for="image">Image</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="image"
+                  placeholder="Enter email"
+                  name="image"
+                  required
+                  image
+                  #image="ngModel"
+                  [(ngModel)]="property.image">
+                  <span class="error-message" *ngIf="!image.valid && image.touched">Please enter a valid image.</span>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  placeholder="Enter Address"
+                  name="address"
+                  required
+                  #address="ngModel"
+                  [(ngModel)]="property.address">
+                  <span class="error-message" *ngIf="!address.valid && address.touched">Please enter a valid address.</span>
+              </div>
+              <div class="form-group">
+                <label for="city">City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="city"
+                  placeholder="Enter City Name"
+                  name="contact_number"
+                  required
+                  #city="ngModel"
+                  [(ngModel)]="property.city">
+                  <span class="error-message" *ngIf="!city.valid && contact_number.touched">Please enter a valid city name.</span>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-secondary btn-app"
+                (click)="update(user); onUpdateClicked()"
+                [disabled]="!userForm.valid">Update User</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="margin-top:50px;"></div>
